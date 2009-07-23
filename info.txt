@@ -1,0 +1,6 @@
+author  Andreas Gohr
+email   gohr@cosmocode.de
+date    2009-07-23
+name    Signature Plugin
+desc    Sign a short text with a cryptographic hash
+url     http://www.dokuwiki.org/plugin:sign

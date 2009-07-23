@@ -1,0 +1,9 @@
+span.sig_valid {
+    background-color: #dfffe6;
+}
+
+span.sig_invalid {
+    background-color: #ffafaf;
+}
+
+
