@@ -4,8 +4,8 @@
  */
 if(window.toolbar != undefined){
     toolbar[toolbar.length] = {"type":  "pluginsign",
-                               "title": LANG['plugins']['sign']['button'],
-                               "icon":  DOKU_BASE+"lib/plugins/sign/button.png",
+                               "title": LANG['plugins']['cryptsign']['button'],
+                               "icon":  DOKU_BASE+"lib/plugins/cryptsign/button.png",
                                "key":   ""};
 }
 
@@ -23,12 +23,12 @@ function pluginsign(){
 function tb_pluginsign(btn, props, edid) {
     var sel = getSelection($(edid));
 
-    var text = prompt(LANG['plugins']['sign']['prompt'],sel.getText());
+    var text = prompt(LANG['plugins']['cryptsign']['prompt'],sel.getText());
     if(!text) return;
 
     var id = $(edid).form.id.value; // current page ID
 
-    var ajax = new sack(DOKU_BASE+'lib/plugins/sign/sign.php');
+    var ajax = new sack(DOKU_BASE+'lib/plugins/cryptsign/sign.php');
     ajax.AjaxFailedAlert = '';
     ajax.encodeURIString = false;
     ajax.onCompletion = pluginsign;

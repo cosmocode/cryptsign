@@ -13,7 +13,7 @@ require_once(DOKU_PLUGIN.'syntax.php');
  * All DokuWiki plugins to extend the parser/rendering mechanism
  * need to inherit from this class
  */
-class syntax_plugin_sign extends DokuWiki_Syntax_Plugin {
+class syntax_plugin_cryptsign extends DokuWiki_Syntax_Plugin {
 
     /**
      * return some info
@@ -48,7 +48,7 @@ class syntax_plugin_sign extends DokuWiki_Syntax_Plugin {
      * Connect pattern to lexer
      */
     function connectTo($mode) {
-        $this->Lexer->addSpecialPattern('\{\{.+?\$\$[a-f0-9]{32}--.+?\$\$\}\}',$mode,'plugin_sign');
+        $this->Lexer->addSpecialPattern('\{\{.+?\$\$[a-f0-9]{32}--.+?\$\$\}\}',$mode,'plugin_cryptsign');
     }
 
 
