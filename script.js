@@ -2,7 +2,7 @@
 /**
  * Append a toolbar button
  */
-if(window.toolbar != undefined){
+if(window.toolbar != undefined && INFO['userinfo']['login']){
     toolbar[toolbar.length] = {"type":  "pluginsign",
                                "title": LANG['plugins']['cryptsign']['button'],
                                "icon":  DOKU_BASE+"lib/plugins/cryptsign/button.png",
