@@ -19,7 +19,7 @@ class syntax_plugin_cryptsign extends DokuWiki_Syntax_Plugin {
      * return some info
      */
     function getInfo(){
-        return confToHash(dirname(__FILE__).'/info.txt');
+        return confToHash(dirname(__FILE__).'/plugin.info.txt');
     }
 
     /**
