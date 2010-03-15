@@ -16,13 +16,6 @@ require_once(DOKU_PLUGIN.'syntax.php');
 class syntax_plugin_cryptsign extends DokuWiki_Syntax_Plugin {
 
     /**
-     * return some info
-     */
-    function getInfo(){
-        return confToHash(dirname(__FILE__).'/plugin.info.txt');
-    }
-
-    /**
      * What kind of syntax are we?
      */
     function getType(){
@@ -60,7 +53,7 @@ class syntax_plugin_cryptsign extends DokuWiki_Syntax_Plugin {
 
         $match = substr($match,2,-4);
         $pos   = strrpos($match,'$$');
-        $text  = substr($match,0,$pos);
+        $text  = trim(substr($match,0,$pos));
         $sig   = substr($match,$pos+2,32);
         $user  = substr($match,$pos+36);
         $check = md5($ID.$user.trim($text).auth_cookiesalt());
