@@ -41,7 +41,7 @@ class syntax_plugin_cryptsign extends DokuWiki_Syntax_Plugin {
      * Connect pattern to lexer
      */
     function connectTo($mode) {
-        $this->Lexer->addSpecialPattern('\{\{.+?\$\$[a-f0-9]{32}--.+?\$\$\}\}',$mode,'plugin_cryptsign');
+        $this->Lexer->addSpecialPattern('\{\{[^{]+\$\$[a-f0-9]{32}--.+?\$\$\}\}',$mode,'plugin_cryptsign');
     }
 
 
