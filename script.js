@@ -15,6 +15,11 @@ if(window.toolbar != undefined && JSINFO['user']){
 function pluginsign(){
     var data = this.response;
     insertAtCarret(this.__edid, data);
+    var sum = $('edit__summary');
+    if (sum.value !== '' && sum.value.lastIndexOf(' ') !== sum.value.length) {
+        sum.value + ' ';
+    }
+    sum.value += LANG.plugins.cryptsign.summary;
 }
 
 /**
