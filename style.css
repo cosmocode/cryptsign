@@ -1,11 +1,11 @@
 span.sig_valid {
     background: #dfffe6 url(pix/lock.png) no-repeat scroll right top;
-    padding-right: 18px;
+    padding: 1px 18px 1px 0;
 }
 
 span.sig_invalid {
     background: #ffafaf url(pix/lock_break.png) no-repeat scroll right top;
-    padding-right: 18px;
+    padding: 1px 18px 1px 0;
 }
 
 
