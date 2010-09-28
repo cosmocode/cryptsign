@@ -16,9 +16,12 @@ class action_plugin_cryptsign extends DokuWiki_Action_Plugin {
     }
 
     /**
-     * export username to JS 
+     * export username to JS
      */
     function _adduser(&$event, $param) {
+        if (!isset($_SERVER['REMOTE_USER'])) {
+            return;
+        }
         global $JSINFO;
         $JSINFO['user'] = $_SERVER['REMOTE_USER'];
     }

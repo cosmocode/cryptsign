@@ -2,7 +2,8 @@
 /**
  * Append a toolbar button
  */
-if(window.toolbar != undefined && JSINFO['user']){
+if(window.toolbar != undefined &&
+   typeof JSINFO.user !== undefined) {
     toolbar[toolbar.length] = {"type":  "pluginsign",
                                "title": LANG.plugins.cryptsign.button,
                                "icon":  DOKU_BASE+"lib/plugins/cryptsign/pix/button.png",
@@ -17,7 +18,7 @@ function pluginsign(){
     insertAtCarret(this.__edid, data);
     var sum = $('edit__summary');
     if (sum.value !== '' && sum.value.lastIndexOf(' ') !== sum.value.length) {
-        sum.value + ' ';
+        sum.value += ' ';
     }
     sum.value += LANG.plugins.cryptsign.summary;
 }

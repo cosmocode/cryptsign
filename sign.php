@@ -1,7 +1,7 @@
 <?php
 //fix for Opera XMLHttpRequests
 if(!count($_POST) && $HTTP_RAW_POST_DATA){
-  parse_str($HTTP_RAW_POST_DATA, $_POST);
+    parse_str($HTTP_RAW_POST_DATA, $_POST);
 }
 
 if(!defined('DOKU_INC')) define('DOKU_INC',dirname(__FILE__).'/../../../');
