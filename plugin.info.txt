@@ -1,7 +1,7 @@
 base	cryptsign
 author  Andreas Gohr
-email   gohr@cosmocode.de
-date    2009-11-03
+email   dokuwiki@cosmocode.de
+date    2015-02-26
 name    Signature Plugin
 desc    Sign a short text with a cryptographic hash
 url     http://www.dokuwiki.org/plugin:cryptsign
