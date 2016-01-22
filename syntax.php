@@ -48,7 +48,7 @@ class syntax_plugin_cryptsign extends DokuWiki_Syntax_Plugin {
     /**
      * Handle the match
      */
-    function handle($match, $state, $pos, &$handler){
+    function handle($match, $state, $pos, Doku_Handler $handler){
         global $ID;
 
         $match = substr($match,2,-4);
@@ -67,7 +67,7 @@ class syntax_plugin_cryptsign extends DokuWiki_Syntax_Plugin {
     /**
      * Create output
      */
-    function render($format, &$R, $data) {
+    function render($format, Doku_Renderer $R, $data) {
         if($format != 'xhtml') return false;
 
         $user = strip_tags(editorinfo($data['user']));
