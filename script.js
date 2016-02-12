@@ -1,4 +1,3 @@
-
 /**
  * Append a toolbar button
  */
@@ -13,10 +12,9 @@ if(window.toolbar != undefined &&
 /**
  * Callback for inserting the signed text
  */
-function pluginsign(){
-    var data = this.response;
-    insertAtCarret(this.__edid, data);
-    var sum = $('edit__summary');
+function pluginsign(edid, data){
+    insertAtCarret(edid.substr(1), data);
+    var sum = jQuery('#edit__summary');
     if (sum.value !== '' && sum.value.lastIndexOf(' ') !== sum.value.length) {
         sum.value += ' ';
     }
@@ -27,18 +25,22 @@ function pluginsign(){
  * Ask for the text to sign and send a sign request via AJAX
  */
 function tb_pluginsign(btn, props, edid) {
-    var sel = getSelection($(edid));
+    edid = "#" + edid;
 
-    var text = prompt(LANG['plugins']['cryptsign']['prompt'],sel.getText());
+    //uncomment the next two lines (and comment the third) to insert the whole text of the page to the prompt
+    //var sel = jQuery(edid).val();
+    //var text = prompt(LANG['plugins']['cryptsign']['prompt'],sel);
+    var text = prompt(LANG['plugins']['cryptsign']['prompt'],"");
+
     if(!text) return;
 
-    var id = $(edid).form.id.value; // current page ID
+    var id = jQuery(edid)[0].form.id.value; // current page ID
 
-    var ajax = new sack(DOKU_BASE+'lib/plugins/cryptsign/sign.php');
-    ajax.AjaxFailedAlert = '';
-    ajax.encodeURIString = false;
-    ajax.onCompletion = pluginsign;
-    ajax.__edid = edid;  //store the editor area in the ajax object
-    ajax.runAJAX(ajax.encVar('text',text)+'&'+ajax.encVar('id',id));
+    jQuery.post(
+        DOKU_BASE+'lib/plugins/cryptsign/sign.php',
+        { text:text, id: id},
+        function(data) { pluginsign(edid, data); }
+    );
+
 }
 
